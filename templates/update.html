@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static './css/registration.css' %}">
+    <style>
+        *,*::after,*::before{
+            margin:0px;
+            padding:0px;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+            padding:20px;
+            background-color: lightcyan;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    <form action = "/update/{{data.id}}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label >Name</label>
+            <input type="text"  name = "username"  class="form-control"   value = {{data.username}}>
+          </div>
+        <div class="form-group">
+          <label >Email address</label>
+          <input type="email"  name = "email" class="form-control"  value = {{data.email}}  >
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" name = "password"  class="form-control" value = {{data.password}}  >
+        </div>
+
+        <button type="submit" name = "submit"  class="btn btn-primary" value="submit">Submit</button>
+      </form>
+
+    
+</body>
+</html>

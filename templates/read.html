@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width:700px;
+            height:auto;
+            margin:auto;
+            border:2px solid black;
+        }
+        table,th,td{
+            border-collapse: collapse;
+        }
+        th,td{
+            padding:5px 10px;
+            text-align: center;
+            border:2px solid black;
+        }
+        h1{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Psssword</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for x in data %}
+        <tr>
+            <td>{{x.username}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.password}}</td>
+            <td><a href = "update/{{x.id}}">update</a></td>
+            <td><a href = "delete/{{x.id}}">delete</a></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
